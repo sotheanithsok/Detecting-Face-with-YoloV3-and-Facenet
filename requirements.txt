@@ -1,1 +1,5 @@
-Tensorflow 2.0+
+wrapt==1.11.2
+tensorflow
+pillow
+pylint
+black
