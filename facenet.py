@@ -7,9 +7,9 @@ import tensorflow as tf
 
 
 # Static variables
-FILE_ID = "1PZ_6Zsy1Vb0s0JmjEmVd8FS99zoMCiN1"
-PATH_TO_STORE_MODEL = "./models/facenet/"
-FILE_NAME = "facenet_keras.h5"
+FILE_ID = "1iWWmn8eTHo6AK-l3rBQB-YfzMbPa-GXX"
+PATH_TO_STORE_MODEL = "./models/"
+FILE_NAME = "facenet.h5"
 
 
 def load_model():
@@ -17,6 +17,7 @@ def load_model():
     """
 
     download_model()
+    print(PATH_TO_STORE_MODEL + FILE_NAME)
     return tf.keras.models.load_model(PATH_TO_STORE_MODEL + FILE_NAME)
 
 
@@ -25,7 +26,7 @@ def download_model():
     """
 
     if not Path(PATH_TO_STORE_MODEL + FILE_NAME).exists():
-        print("Downloading facenet model...")
+        print("Downloading",FILE_NAME,"...")
 
         # Make directory to store downloaded model
         Path(PATH_TO_STORE_MODEL).mkdir(

@@ -125,3 +125,5 @@ dmypy.json
 .pyre/
 .vscode/
 *.h5
+models/face_classes.txt
+models/yolo_anchors.txt
