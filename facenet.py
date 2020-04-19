@@ -26,7 +26,7 @@ def download_model():
     """
 
     if not Path(PATH_TO_STORE_MODEL + FILE_NAME).exists():
-        print("Downloading",FILE_NAME,"...")
+        print("Downloading", FILE_NAME, "...")
 
         # Make directory to store downloaded model
         Path(PATH_TO_STORE_MODEL).mkdir(
