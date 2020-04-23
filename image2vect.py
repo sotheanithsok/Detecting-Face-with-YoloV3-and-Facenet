@@ -10,7 +10,7 @@ class ImageVectorize:
     def image2vect(self, image):
         # Get metrics from yolo detected image
         out_scores, out_boxes, out_classes = self._yolo_model.detect_image(image)
-
+        self._yolo_model.close_session()
         # If box is not detected, return 128 zeros
         # Out_box.shape expected to be (1,4). One tuple of four items (top, left, bottom, right)
         if(out_boxes.shape == (1,4)):
