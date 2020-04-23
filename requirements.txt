@@ -3,3 +3,4 @@ tensorflow
 pillow
 pylint
 black
+scikit-learn
