@@ -17,7 +17,6 @@ def load_model():
     """
 
     download_model()
-    print(PATH_TO_STORE_MODEL + FILE_NAME)
     return tf.keras.models.load_model(PATH_TO_STORE_MODEL + FILE_NAME)
 
 
