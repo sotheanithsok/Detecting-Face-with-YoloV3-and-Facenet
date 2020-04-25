@@ -31,7 +31,7 @@ for group in range(1,8,1):
         images.append( len(finder.get_detected_images()))
         precision.append(finder.get_precision())
         recall.append(finder.get_recall())
-        accuracy.append(finder.get_accuracy)
+        accuracy.append(finder.get_accuracy())
         metrics.append((finder.tp,finder.tn,finder.fp,finder.fn))
     
     print("Images:", images)
