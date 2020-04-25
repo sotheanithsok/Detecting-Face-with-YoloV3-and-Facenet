@@ -109,7 +109,6 @@ class _YOLO(object):
             ) * (
                 num_classes + 5
             ), "Mismatch between model and given anchor and class sizes"
-        print("*** {} model, anchors, and classes loaded.".format(model_path))
 
         # generate output tensor targets for filtered bounding boxes.
         self.input_image_shape = K.placeholder(shape=(2,))
@@ -279,7 +278,6 @@ class _YOLO(object):
             )
             boxed_image = self._letterbox_image(image, new_image_size)
         image_data = np.array(boxed_image, dtype="float32")
-        print(image_data.shape)
         image_data /= 255.0
         # add batch dimension
         image_data = np.expand_dims(image_data, 0)
