@@ -33,7 +33,9 @@ for group in range(1,8,1):
         recall.append(finder.get_recall())
         accuracy.append(finder.get_accuracy())
         metrics.append((finder.tp,finder.tn,finder.fp,finder.fn))
+        print("-----------------------------------")
     
+    print("-----------------------------------")
     print("Images:", images)
     print("Recall:", recall)
     print("Precision:", precision)
