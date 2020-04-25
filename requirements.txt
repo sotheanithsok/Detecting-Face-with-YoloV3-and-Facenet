@@ -1,6 +1,6 @@
 wrapt==1.11.2
 tensorflow
-pillow
+Pillow
 pylint
 black
 scikit-learn
