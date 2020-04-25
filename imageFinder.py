@@ -58,15 +58,17 @@ class ImageFinder:
         group_number = str(group_number)
 
         self._anchors, self._vectorized_anchors=self._find_anchors(group_number)
-
+        i = 0
         for group in self._data.keys():
             for member in self._data[group].keys():
                 for img in self._data[group][member]:
 
+                    print('Processing: %i / 320' %(i), end='\r', flush=True)
+                    i= i +1
                     distance = self._calculate_minimum_euclidean_distances(img)
                     if distance<=threshold:
                         self._detected_images.append(img)                        
-                        
+                                        
                     #Metrics
                     if group_number==group and distance<=threshold:
                         self.tp = self.tp + 1
@@ -76,7 +78,7 @@ class ImageFinder:
                         self.fn = self.fn + 1
                     elif group_number != group and not distance<=threshold:
                         self.tn = self.tn +1 
-
+        print('Processing: %i / 320' %(i), flush=True)
         return self._detected_images
     
     def _calculate_minimum_euclidean_distances(self, img):
@@ -104,6 +106,11 @@ class ImageFinder:
             return 0
         return self.tp / (self.tp + self.fn)
 
+    def get_accuracy(self):
+        if self.tp + self.fn + self.tn + self.fp == 0:
+            return 0
+        return (self.tp+self.tn) / (self.tp + self.fn + self.tn + self.fp)
+
     def get_detected_images(self):
         return self._detected_images
 
@@ -125,6 +132,7 @@ class ImageFinder:
             if x_offset>=widths:
                 x_offset=0
                 y_offset=y_offset+size_per_image[1]
+        return new_im
 
 
             

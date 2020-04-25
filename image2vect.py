@@ -1,7 +1,7 @@
 import numpy as np
 import facenet 
 import yolo
-from sklearn.preprocessing import normalize
+from sklearn.preprocessing import normalize, StandardScaler
 
 class ImageVectorize:
     def __init__(self, yolo_model = yolo.load_model(), facenet_model = facenet.load_model()):
@@ -11,7 +11,7 @@ class ImageVectorize:
     def image2vect(self, image):
         # Get metrics from yolo detected image
         out_scores, out_boxes, out_classes = self._yolo_model.detect_image(image)
-        
+
         # If box is not detected, return 128 zeros
         # Out_box.shape expected to be (1,4). One tuple of four items (top, left, bottom, right)
         if(out_boxes.size!=0):
@@ -39,8 +39,13 @@ class ImageVectorize:
             # Reshape to np.array for color channels
             croppedImage_array = np.array(list(croppedImage.getdata())).reshape((160,160,3)) 
             images_array.append(croppedImage_array)
+            break
         
         #Feed cropped images into facenet
-        imageVector = self._facenet_model.predict(np.array(images_array))
+        images_array = np.array(images_array, dtype="float32")
+        images_array /=255.0
+        images_array -=0.5 
+
+        imageVector = self._facenet_model.predict(images_array)
         imageVector = normalize(imageVector, norm='l2')
         return imageVector
