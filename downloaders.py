@@ -1,5 +1,6 @@
 # Credit: https://stackoverflow.com/a/39225039
-
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 import requests
 from pathlib import Path
 import time

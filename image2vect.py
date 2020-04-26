@@ -1,3 +1,5 @@
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 import numpy as np
 import facenet 
 import yolo
@@ -39,6 +41,7 @@ class ImageVectorize:
             # Reshape to np.array for color channels
             croppedImage_array = np.array(list(croppedImage.getdata())).reshape((160,160,3)) 
             images_array.append(croppedImage_array)
+            break
         
         #Feed cropped images into facenet
         images_array = np.array(images_array, dtype="float32")

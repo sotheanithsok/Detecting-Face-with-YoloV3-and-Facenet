@@ -1,3 +1,5 @@
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 from yolo import load_model
 from data import load_data
 from image2vect import ImageVectorize
@@ -11,8 +13,8 @@ import math
 class ImageFinder:
     # Initialzation with loading yolo model and member list
     def __init__(self):
-        self._imageVectorize = ImageVectorize()
         self._yolo_model = load_model()
+        self._imageVectorize = ImageVectorize(yolo_model=self._yolo_model)
         self._data = load_data()
         self._anchors = []
         self._detected_images = []
@@ -47,7 +49,7 @@ class ImageFinder:
 
 
     # Triplets
-    def find_images(self, group_number, threshold = 0.1):
+    def find_images(self, group_number, threshold = 0.75):
         if(int(group_number)<1 or int(group_number)>7):
             print("Invalid group number")
             return
@@ -78,7 +80,6 @@ class ImageFinder:
                         self.fn = self.fn + 1
                     elif group_number != group and not distance<=threshold:
                         self.tn = self.tn +1 
-        print('Processing: %i / 320' %(i), flush=True)
         return self._detected_images
     
     def _calculate_minimum_euclidean_distances(self, img):

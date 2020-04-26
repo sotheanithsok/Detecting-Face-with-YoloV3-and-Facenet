@@ -1,10 +1,12 @@
 # Speical thank to Hiroki Taniai for providing pretrained facenet model.
 # https://github.com/nyoki-mtl/keras-facenet
 
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 from pathlib import Path
 from downloaders import download_file_from_google_drive
 import tensorflow as tf
-
+tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
 
 # Static variables
 FILE_ID = "1iWWmn8eTHo6AK-l3rBQB-YfzMbPa-GXX"
@@ -15,7 +17,7 @@ FILE_NAME = "facenet.h5"
 def load_model():
     """Load pretrained facenet model
     """
-
+    print("Preparing facenet model...")
     download_model()
     return tf.keras.models.load_model(PATH_TO_STORE_MODEL + FILE_NAME)
 

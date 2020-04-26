@@ -1,3 +1,5 @@
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 from pathlib import Path
 from downloaders import download_file_from_google_drive
 from zipfile import ZipFile
@@ -14,6 +16,7 @@ FILE_NAME = "data.zip"
 def load_data():
     """Load data to PIL images to dictionary of group->name->PIL Images
     """
+    print("Preparing data...")
     # Download images
     download_data()
 

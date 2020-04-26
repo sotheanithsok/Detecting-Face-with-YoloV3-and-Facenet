@@ -4,9 +4,12 @@
 # are based from.
 # https://github.com/sthanhng/yoloface
 
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 from pathlib import Path
 from downloaders import download_file_from_google_drive
 import tensorflow as tf
+tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
 
 
 # Static variables
@@ -22,7 +25,7 @@ FILE_NAMES = ["YOLO_Face.h5", "yolo_anchors.txt", "face_classes.txt"]
 def load_model():
     """Load pretrained facenet model
     """
-
+    print("Preparing yolo model...")
     download_model()
     return _YOLO()
 
@@ -51,8 +54,6 @@ import colorsys
 import numpy as np
 from tensorflow.compat.v1.keras import backend as K
 from PIL import Image
-
-import tensorflow as tf
 
 tf.compat.v1.disable_eager_execution()
 
