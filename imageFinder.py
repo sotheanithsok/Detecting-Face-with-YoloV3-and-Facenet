@@ -64,7 +64,6 @@ class ImageFinder:
         for group in self._data.keys():
             for member in self._data[group].keys():
                 for img in self._data[group][member]:
-
                     print('Processing: %i / 320' %(i), end='\r', flush=True)
                     i= i +1
                     distance = self._calculate_minimum_euclidean_distances(img)
@@ -80,6 +79,7 @@ class ImageFinder:
                         self.fn = self.fn + 1
                     elif group_number != group and not distance<=threshold:
                         self.tn = self.tn +1 
+        print('Processing: %i / 320' %(i))
         return self._detected_images
     
     def _calculate_minimum_euclidean_distances(self, img):
