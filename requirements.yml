@@ -1,0 +1,11 @@
+name: fy
+channels:
+  - defaults
+dependencies:
+  - python=3.7
+  - tensorflow-gpu
+  - pillow 
+  - scikit-learn
+  - pylint
+  - black
+
