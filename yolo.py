@@ -61,7 +61,7 @@ class _YOLO(object):
     def __init__(
         self,
         iou_threshold=0.45,
-        score_threshold=0.01,
+        score_threshold=0.5,
         model_path="models/YOLO_Face.h5",
         classes_path="models/face_classes.txt",
         anchors_path="models/yolo_anchors.txt",

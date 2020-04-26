@@ -2,6 +2,7 @@
 
 import requests
 from pathlib import Path
+import time
 
 
 def download_file_from_google_drive(id, destination):
@@ -25,16 +26,20 @@ def download_file_from_google_drive(id, destination):
             for chunk in response.iter_content(CHUNK_SIZE):
                 if chunk:  # filter out keep-alive new chunks
                     f.write(chunk)
+    try:
+        URL = "https://docs.google.com/uc?export=download"
 
-    URL = "https://docs.google.com/uc?export=download"
+        session = requests.Session()
 
-    session = requests.Session()
+        response = session.get(URL, params={"id": id}, stream=True)
+        token = get_confirm_token(response)
 
-    response = session.get(URL, params={"id": id}, stream=True)
-    token = get_confirm_token(response)
+        if token:
+            params = {"id": id, "confirm": token}
+            response = session.get(URL, params=params, stream=True)
 
-    if token:
-        params = {"id": id, "confirm": token}
-        response = session.get(URL, params=params, stream=True)
-
-    save_response_content(response, destination)
+        save_response_content(response, destination)
+    except:
+        print("Download error. Retry in 5 sec.")
+        time.sleep(5)
+        download_file_from_google_drive(id,destination)
