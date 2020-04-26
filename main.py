@@ -6,7 +6,7 @@ from imageFinder import ImageFinder
 
 def get_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--tau', type=float, default=0.75, help='maximum distance for valid images')
+    parser.add_argument('--tau', type=float, default=1.0, help='maximum distance for valid images')
     parser.add_argument('--show', default=False, action="store_true", help='show a compilation of detected images')
     parser.add_argument('--full', default=False, action="store_true", help='run algorithm on every group and a range of tau')
     return parser.parse_args()
