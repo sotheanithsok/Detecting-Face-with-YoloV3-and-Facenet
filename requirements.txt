@@ -1,6 +1,0 @@
-wrapt==1.11.2
-tensorflow
-pillow
-pylint
-black
-scikit-learn
