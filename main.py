@@ -6,7 +6,8 @@ from imageFinder import ImageFinder
 
 def get_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--tau', type=float, default=0.75, help='Maximum distance for valid images')
+    parser.add_argument('--tau', type=float, default=0.75, help='maximum distance for valid images')
+    parser.add_argument('--show', default=False, action="store_true", help='show a compilation of detected images')
     return parser.parse_args()
 
 def _main():
@@ -35,6 +36,8 @@ def _main():
             print("Precision: ", finder.get_precision())
             print("Accuracy:", finder.get_accuracy())
             print("Metrics: (tp: %i,  tn: %i, fp: %i, fn: %i)" %(finder.tp,finder.tn,finder.fp,finder.fn))
+            if(args.show):
+                finder.get_detected_images_as_one().show()
         except:
             print("Invalid input")
 
