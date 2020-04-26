@@ -52,6 +52,7 @@ def full_run(args):
         accuracy_array = []
         metrics_array = []
         for tau in range(0,201,25):
+            print("-----------------------------------")
             start = time.time()
             finder.find_images(group, tau/100.0)
             end = time.time()
