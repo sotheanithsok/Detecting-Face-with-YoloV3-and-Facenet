@@ -6,9 +6,16 @@ import yolo
 from sklearn.preprocessing import normalize, StandardScaler
 
 class ImageVectorize:
-    def __init__(self, yolo_model = yolo.load_model(), facenet_model = facenet.load_model()):
-        self._yolo_model = yolo_model
-        self._facenet_model = facenet_model
+    def __init__(self, yolo_model = None, facenet_model = None):
+        if yolo_model==None:
+            self._yolo_model=yolo.load_model()
+        else:
+            self._yolo_model = yolo_model
+
+        if facenet_model==None:
+            self._facenet_model=facenet.load_model()
+        else:
+            self._facenet_model = facenet_model
 
     def image2vect(self, image):
         # Get metrics from yolo detected image

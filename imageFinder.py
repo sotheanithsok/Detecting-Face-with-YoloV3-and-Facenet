@@ -1,7 +1,7 @@
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
-from yolo import load_model
-from data import load_data
+import yolo
+import data
 from image2vect import ImageVectorize
 from PIL import Image
 from sklearn.metrics.pairwise import euclidean_distances
@@ -13,9 +13,9 @@ import math
 class ImageFinder:
     # Initialzation with loading yolo model and member list
     def __init__(self):
-        self._yolo_model = load_model()
+        self._yolo_model = yolo.load_model()
         self._imageVectorize = ImageVectorize(yolo_model=self._yolo_model)
-        self._data = load_data()
+        self._data = data.load_data()
         self._anchors = []
         self._detected_images = []
         self.tp, self.fp, self.tn, self.fn = 0,0,0,0
