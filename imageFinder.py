@@ -69,7 +69,7 @@ class ImageFinder:
                     i= i +1
                     distance = self._calculate_minimum_euclidean_distances(img)
                     if distance<=threshold:
-                        self._detected_images.append(img)                        
+                        self._detected_images.append(img)                     
                                         
                     #Metrics
                     if group_number==group and distance<=threshold:

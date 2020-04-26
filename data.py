@@ -8,7 +8,7 @@ from PIL import Image
 import glob
 
 # Static variables
-FILE_ID = "1vAtykMfhKDT1LywJlpSE9DcxjvNJdBVL"
+FILE_ID = "1rKxwXBwJGPSMr1gTQk4XIBVyM6pppWm_"
 PATH_TO_STORE_DATA = "./data/"
 FILE_NAME = "data.zip"
 
