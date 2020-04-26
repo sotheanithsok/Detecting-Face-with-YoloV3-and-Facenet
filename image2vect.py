@@ -18,6 +18,10 @@ class ImageVectorize:
             self._facenet_model = facenet_model
 
     def image2vect(self, image):
+        """
+        Map the highest probability face onto 128 vectors representation
+        """
+
         # Get metrics from yolo detected image
         out_scores, out_boxes, out_classes = self._yolo_model.detect_image(image)
 
@@ -31,6 +35,9 @@ class ImageVectorize:
         return imageVector
 
     def _cropImage(self, out_boxes, image):
+        """
+        Crop face out of an image and map it onto 128 vectors representation
+        """
         images_array = []
         for out_box in out_boxes:
             # Get box size
@@ -50,11 +57,15 @@ class ImageVectorize:
             images_array.append(croppedImage_array)
             break
         
-        #Feed cropped images into facenet
+        #Preprocessing
         images_array = np.array(images_array, dtype="float32")
         images_array /=255.0
         images_array -=0.5 
 
+        #Feed cropped images into facenet
         imageVector = self._facenet_model.predict(images_array)
+
+        #Normalize the vector
         imageVector = normalize(imageVector, norm='l2')
+
         return imageVector

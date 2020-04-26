@@ -11,7 +11,6 @@ import math
 
 
 class ImageFinder:
-    # Initialzation with loading yolo model and member list
     def __init__(self):
         self._yolo_model = yolo.load_model()
         self._imageVectorize = ImageVectorize(yolo_model=self._yolo_model)
@@ -20,12 +19,16 @@ class ImageFinder:
         self._detected_images = []
         self.tp, self.fp, self.tn, self.fn = 0,0,0,0
         
-    #Find anchors
     def get_anchors(self):
+        """
+        Get the latest images set that were used as anchors
+        """
         return self._anchors
     
-    # Find the path of photos with highest Pc by giving group ID
     def _find_anchors(self, group_number):
+        """
+        Given group number, find the anchor for each person in that group
+        """
         anchors=[]
         vectorized_anchors=None
         for member in self._data[group_number].keys():
@@ -48,8 +51,11 @@ class ImageFinder:
         return anchors, vectorized_anchors
 
 
-    # Triplets
-    def find_images(self, group_number, threshold = 0.75):
+    def find_images(self, group_number, threshold = 1.0):
+        """
+        Find images belonging to a group
+        """
+
         if(int(group_number)<1 or int(group_number)>7):
             print("Invalid group number")
             return
@@ -83,6 +89,9 @@ class ImageFinder:
         return self._detected_images
     
     def _calculate_minimum_euclidean_distances(self, img):
+        """
+        Calculate the lowest euclidean distance between a given img and internal anchors
+        """
         minimum_distance=1000.0
         for vectorized_anchor in self._vectorized_anchors:
             if np.inf in vectorized_anchor:
@@ -98,24 +107,41 @@ class ImageFinder:
         return minimum_distance
     
     def get_precision (self):
+        """
+        Get precision
+        """
+
         if self.tp + self.fp == 0:
             return 0
         return self.tp / (self.tp + self.fp)
     
     def get_recall(self):
+        """
+        Get recall
+        """
+
         if self.tp + self.fn == 0:
             return 0
         return self.tp / (self.tp + self.fn)
 
     def get_accuracy(self):
+        """
+        Get accuracy
+        """
         if self.tp + self.fn + self.tn + self.fp == 0:
             return 0
         return (self.tp+self.tn) / (self.tp + self.fn + self.tn + self.fp)
 
     def get_detected_images(self):
+        """
+        Get detected images
+        """
         return self._detected_images
 
     def get_detected_images_as_one(self, size_per_image = (160,160)):
+        """
+        Get a compliation of detected images as one
+        """
         images=[]
         for i in self._detected_images:
             images.append(i.resize(size_per_image))

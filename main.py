@@ -5,6 +5,9 @@ import argparse
 from imageFinder import ImageFinder
 
 def get_args():
+    """
+    Prase command line input
+    """
     parser = argparse.ArgumentParser()
     parser.add_argument('--tau', type=float, default=1.0, help='maximum distance for valid images')
     parser.add_argument('--show', default=False, action="store_true", help='show a compilation of detected images')
@@ -12,6 +15,9 @@ def get_args():
     return parser.parse_args()
 
 def normal_run(args):
+    """
+    Normal run for detect faces belong to a single group
+    """
     done = False
     finder = ImageFinder()
 
@@ -42,6 +48,9 @@ def normal_run(args):
             print("Invalid input")
 
 def full_run(args):
+    """
+    Run the face detection algorithm on every group for a given range of tau threshold
+    """
     finder = ImageFinder()
     for group in range(1,8,1):
         tau_array = []
