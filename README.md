@@ -1,5 +1,4 @@
 # Detecting Face with YoloV3 and Facenet
-
 ## Members
 - [Sotheanith Sok](https://github.com/sotheanith "Sotheanith Sok")
 - [Alex Pahm](https://github.com/alexpham095 "Alex Pahm")
@@ -32,10 +31,13 @@ Run the program:
 
     python ./main.py --tau 1.0 --show
 
-# References
+## Report
+- [Full Report](https://github.com/sotheanith/CECS-551-Facenet-Yolo/blob/master/report/Report.pdf "Full Report")
+- [Result Sheet](https://github.com/sotheanith/CECS-551-Facenet-Yolo/blob/master/report/Result.xlsx "Result Sheet")
+
+## References
 - Pre-trained YoloV3 by Thanh Nguyen: https://github.com/sthanhng/yoloface
 - Pre-trained Facenet model by Hiroki Taniai: https://github.com/nyoki-mtl
 - Florian Schroff, Dmitry Kalenichenko, James Philbin: FaceNet: A Unified Embedding for Face Recognition and Clustering 17 Jun 2015 (v3)
 - Brownlee, Jason. “How to Develop a Face Recognition System Using FaceNet in Keras.” Machine Learning Mastery, 21 Nov. 2019, machinelearningmastery.com/how-to-develop-a-face-recognition-system-using-facenet-in-keras-and-an-svm-classifier/.
-
 
