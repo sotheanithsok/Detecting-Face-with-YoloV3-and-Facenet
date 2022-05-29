@@ -15,7 +15,7 @@ The classification is based on some threshold of the euclidean distance between 
  - [TensorFlow](https://www.tensorflow.org/)
 
 ## Authors
- - [Sotheanith Sok](https://github.com/sotheanith "Sotheanith Sok")
+ - [Sotheanith Sok](https://github.com/sotheanith-sok "Sotheanith Sok")
  - [Alex Pahm](https://github.com/alexpham095 "Alex Pahm")
  - [Grant Chen](https://github.com/reizero01 "Grant Chen")
  
