@@ -13,6 +13,7 @@ The classification is based on some threshold of the euclidean distance between 
 ## Prerequisites
  - [Python](https://www.python.org/)
  - [TensorFlow](https://www.tensorflow.org/)
+ - [Necessary Files](https://mega.nz/folder/W2JwgZrb#3fbukdnLG308Brw5wpblMw)
 
 ## Authors
  - [Sotheanith Sok](https://github.com/sotheanith-sok "Sotheanith Sok")
