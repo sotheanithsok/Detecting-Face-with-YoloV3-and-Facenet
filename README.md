@@ -35,19 +35,22 @@ The classification is based on some threshold of the euclidean distance between 
 ## Requirements
 - [Data/Models]
 
-## Setup
-For Windows:
-
-    conda env create -f ./winRequirements.yml
+## Getting Started
 
 
-For MacOS:
-
-    conda env create -f ./macRequirements.yml
-
-Run the program:
-
-    python ./main.py --tau 1.0 --show
+1. Clone the repository.
+```sh
+git clone https://github.com/sotheanithsok/Detecting-Face-with-YoloV3-and-Facenet
+```
+2. Install python packages.
+```sh
+conda env create -f ./winRequirements.yml # Windows
+conda env create -f ./macRequirements.yml #Mac
+```
+3. Run the main program.
+```sh
+python ./main.py --tau 1.0 --show
+``` 
 
 ## Documentation
 - [Full Report]
