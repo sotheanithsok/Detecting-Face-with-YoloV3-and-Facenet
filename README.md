@@ -2,7 +2,7 @@
 
 <!-- Load logo from readme/logo.jpg -->
 <div align="center">
-  <img src="readme/logo.jpg" width="600" alt="animated" />
+  <img src="readme/logo.jpg" width="600" alt="logo" />
 </div>
 
 
