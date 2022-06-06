@@ -101,28 +101,17 @@ Special thank to
 [license_url]: https://github.com/sotheanithsok/Detecting-Face-with-YoloV3-and-Facenet/blob/master/LICENSE
 [linkedin_url]: https://www.linkedin.com/in/sotheanith-sok-969ab0b3/
 
-<!-- Requirements -->
+<!-- Other links -->
+[Sotheanith Sok]: https://github.com/sotheanithsok
+[Best-README-Template]: https://github.com/othneildrew/Best-README-Template
 [Data/Models]:https://mega.nz/folder/W2JwgZrb#3fbukdnLG308Brw5wpblMw
-
-<!-- Reports -->
 [Full Report]:report/Report.pdf
 [Collected Data]:report/Result.xlsx
-
-<!-- Built With -->
 [Python]: https://www.python.org/
 [TensorFlow]:https://www.tensorflow.org/
-
-<!-- Collaborators -->
-[Sotheanith Sok]: https://github.com/sotheanithsok
 [Alex Pahm]:https://github.com/alexpham095
 [Grant Chen]:https://github.com/reizero01
-
-<!-- Courses -->
 [CECS 551 - Advanced Artificial Intelligence]: http://catalog.csulb.edu/preview_course_nopop.php?catoid=5&coid=40041
-
-<!-- Acknowledgments -->
-[Best-README-Template]: https://github.com/othneildrew/Best-README-Template
-[NeetCode]: https://www.youtube.com/c/NeetCode/
 [Thanh Nguyen]:https://github.com/sthanhng/yoloface
 [Hiroki Taniai]:https://github.com/nyoki-mtl
 [Schroff et al]:https://arxiv.org/abs/1503.03832
