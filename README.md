@@ -49,7 +49,7 @@ Run the program:
 
     python ./main.py --tau 1.0 --show
 
-## Report
+## Documentation
 - [Full Report]
 - [Collected Data]
 
