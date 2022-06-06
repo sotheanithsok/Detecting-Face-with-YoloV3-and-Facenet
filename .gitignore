@@ -127,7 +127,6 @@ dmypy.json
 *.h5
 models/face_classes.txt
 models/yolo_anchors.txt
-*.jpg
 *.jpeg
 *.png
 data/data.zip
